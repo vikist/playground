@@ -37,6 +37,18 @@
     "@types/node" "*"
     "@types/react" "*"
 
+"@types/react-joyride@^2.0.0":
+  version "2.0.0"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/@types/react-joyride/-/react-joyride-2.0.0.tgz#6ccffe690629fcd22a0d3e4d3d322a5d0535a9ee"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-lazyload@^2.3.1":
+  version "2.3.1"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/@types/react-lazyload/-/react-lazyload-2.3.1.tgz#6a1814432f668081ff693abfa8e09bff09aa3649"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-redux@6.0.6":
   version "6.0.6"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/@types/react-redux/-/react-redux-6.0.6.tgz#87f1d0a6ea901b93fcaf95fa57641ff64079d277"
@@ -2148,7 +2160,7 @@ global-modules-path@^2.3.0:
   version "2.3.0"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/global-modules-path/-/global-modules-path-2.3.0.tgz#b0e2bac6beac39745f7db5c59d26a36a0b94f7dc"
 
-global@^4.3.0:
+global@^4.3.0, global@~4.3.0:
   version "4.3.2"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/global/-/global-4.3.2.tgz#e76989268a6c74c38908b1305b10fc0e394e9d0f"
   dependencies:
@@ -3331,6 +3343,10 @@ negotiator@0.6.1:
 neo-async@^2.5.0:
   version "2.5.2"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
+
+nested-property@^0.0.7:
+  version "0.0.7"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/nested-property/-/nested-property-0.0.7.tgz#ff222f233ca8793c6828b4117091bea597130f4f"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -4527,6 +4543,12 @@ querystringify@^2.0.0:
   version "2.0.0"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/querystringify/-/querystringify-2.0.0.tgz#fa3ed6e68eb15159457c89b37bc6472833195755"
 
+rafl@~1.2.1:
+  version "1.2.2"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/rafl/-/rafl-1.2.2.tgz#fe930f758211020d47e38815f5196a8be4150740"
+  dependencies:
+    global "~4.3.0"
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.0.6"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/randombytes/-/randombytes-2.0.6.tgz#d302c522948588848a8d300c932b44c24231da80"
@@ -4581,6 +4603,17 @@ react-hot-loader@^4.3.4:
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
+
+react-joyride@^1.11.4:
+  version "1.11.4"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/react-joyride/-/react-joyride-1.11.4.tgz#974369da82ac5c2d563f754f13bed1210f18cb3c"
+  dependencies:
+    nested-property "^0.0.7"
+    scroll "^2.0.3"
+
+react-lazyload@^2.3.0:
+  version "2.3.0"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/react-lazyload/-/react-lazyload-2.3.0.tgz#ccb134223012447074a96543954f44b055dc6185"
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -4976,6 +5009,12 @@ schema-utils@^1.0.0:
     ajv "^6.1.0"
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
+
+scroll@^2.0.3:
+  version "2.0.3"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/scroll/-/scroll-2.0.3.tgz#0951b785544205fd17753bc3d294738ba16fc2ab"
+  dependencies:
+    rafl "~1.2.1"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

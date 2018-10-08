@@ -9,6 +9,8 @@ import { TodoModel } from 'app/models';
 import { omit } from 'app/utils';
 import { Header, Footer } from 'app/components';
 import { Introduction } from 'app/components/Introduction';
+import { Lazy } from 'app/components/LazyList/Lazy';
+import LazyLoad from 'react-lazyload';
 
 const FILTER_VALUES = (Object.keys(TodoModel.Filter) as (keyof typeof TodoModel.Filter)[]).map(
   (key) => TodoModel.Filter[key]
@@ -70,11 +72,13 @@ export class App extends React.Component<App.Props> {
       <div className={style.normal}>
         <Header />
 
-        <Introduction/>
-        
+        <Introduction />
+
         {/* <TodoTextInput newTodo onSave={this.handleSave} placeholder="What needs to be done?" /> */}
         {/* <TodoList todos={filteredTodos} actions={actions} /> */}
-
+        <LazyLoad height={800}>
+          <Lazy />
+        </LazyLoad>
         <Footer
           filter={filter}
           activeCount={activeCount}

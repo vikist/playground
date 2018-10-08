@@ -2,7 +2,6 @@ import * as React from 'react';
 import { TodoModel } from 'app/models';
 import './footer.scss';
 
-
 export namespace Footer {
   export interface Props {
     filter: TodoModel.Filter;
@@ -14,13 +13,12 @@ export namespace Footer {
 }
 
 export class Footer extends React.Component<Footer.Props> {
-  static defaultProps: Partial<Footer.Props> = {
+  public static defaultProps: Partial<Footer.Props> = {
     activeCount: 0,
     completedCount: 0
   };
 
-
-  render() {
+  public render() {
     return (
       <footer className="play-footer-container">
         <div className="dummy-text">Dummy text</div>
