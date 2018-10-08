@@ -1,0 +1,24 @@
+.introduction-container {
+
+  margin: auto;
+  padding: 5rem;
+  max-width: 40rem;
+
+  .btn {
+    background-color: #00d9c3; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .dummy-text {
+    margin: 4rem 0;
+    font-size: 2.1rem;
+  }
+
+}

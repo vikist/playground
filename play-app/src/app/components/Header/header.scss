@@ -1,0 +1,19 @@
+.play-header-container {
+  padding: 1rem;
+  background-color: #ededed;
+
+  .logo {
+    width: 7rem;
+  }
+
+  .navigation-list{
+    display: flex;
+    justify-content: flex-end
+  }
+
+  .navigation-entry{
+    display:inline;
+    padding: 0 1rem;
+  }
+
+}
