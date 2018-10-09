@@ -11,9 +11,15 @@
     justify-content: flex-end
   }
 
-  .navigation-entry{
-    display:inline;
+  .navigation-entry {
+    color: #00d9c3;
+    display: inline;
     padding: 0 1rem;
+    margin: auto 0;
+    
+    &:visited {
+      color: #00d9c3;
+    }
   }
 
 }
