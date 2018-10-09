@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './introduction.scss';
+import Spinner from '../Spinner';
 
 export namespace Introduction {
   export interface Props {
@@ -27,35 +28,20 @@ export class Introduction extends React.Component<Introduction.Props, Introducti
     }, 1500);
   }
 
-  public handleJoyrideCallback = (data: any) => {
-    const { joyride } = this.props as any;
-    const { type } = data;
-
-    if (typeof joyride.callback === 'function') {
-      joyride.callback(data);
-    } else {
-      console.group(type);
-      console.log(data); // eslint-disable-line no-console
-      console.groupEnd();
-    }
-  }
-
   public render() {
-    let element;
-    if (this.state.loading) {
-      element = <div>loading...</div>;
-    } else {
-      element = (
+    const element = (
+      <div>
         <button
-          className="btn"
+          className={'btn' + (this.state.loading ? ' inactive' : '')}
           onClick={() => {
             this.handleReloadClick();
           }}
         >
           Start tour
         </button>
-      );
-    }
+        {this.state.loading ? <Spinner /> : null}
+      </div>
+    );
 
     return (
       <div className="introduction-container">
