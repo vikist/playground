@@ -2,12 +2,12 @@ import * as React from 'react';
 import './introduction.scss';
 
 export namespace Introduction {
-  export interface Props {}
+  export interface Props {
+  }
 
   export interface State {
     loading: boolean;
     run: boolean;
-    steps: any[];
   }
 }
 
@@ -16,13 +16,7 @@ export class Introduction extends React.Component<Introduction.Props, Introducti
     super(props, context);
     this.state = {
       loading: false,
-      run: false,
-      steps: [
-        {
-          target: '.feature-tour-step-1',
-          content: 'You can upload your pictures here'
-        }
-      ]
+      run: false
     };
   }
 
@@ -31,6 +25,19 @@ export class Introduction extends React.Component<Introduction.Props, Introducti
     setTimeout(() => {
       this.setState({ loading: false });
     }, 1500);
+  }
+
+  public handleJoyrideCallback = (data: any) => {
+    const { joyride } = this.props as any;
+    const { type } = data;
+
+    if (typeof joyride.callback === 'function') {
+      joyride.callback(data);
+    } else {
+      console.group(type);
+      console.log(data); // eslint-disable-line no-console
+      console.groupEnd();
+    }
   }
 
   public render() {
@@ -52,8 +59,8 @@ export class Introduction extends React.Component<Introduction.Props, Introducti
 
     return (
       <div className="introduction-container">
-        <div className="feature-tour-step-1">{element}</div>
-        <div className="dummy-text feature-tour-step-1">
+        <div>{element}</div>
+        <div className="dummy-text">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
           invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
           accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata

@@ -53,13 +53,11 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
-    "@types/react-joyride": "^2.0.0",
     "@types/react-lazyload": "^2.3.1",
     "@types/react-router-dom": "^4.3.1",
     "classnames": "^2.2.6",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-joyride": "^1.11.4",
     "react-lazyload": "^2.3.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",

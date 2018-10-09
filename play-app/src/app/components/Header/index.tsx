@@ -17,7 +17,7 @@ export class Header extends React.Component<Header.Props> {
       <header className="play-header-container">
         <img className="logo" src={logo} />
         <div className="navigation-list">
-          <Link id="feature-tour-step-1" to="/upload">
+          <Link to="/upload">
             <div className="navigation-entry">Upload</div>
           </Link>
           <Link to="/overview">
