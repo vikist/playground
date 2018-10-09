@@ -2,6 +2,18 @@
   height: 2rem;
   position: relative;
 
+  @keyframes revealMenu {
+    0%{
+      width: 0;
+      right: 2rem;
+    }
+   
+    100% {
+      width: 100;
+      right: 2rem;
+    }
+  }
+
   .menu-container {
     position: absolute;
     top: 2rem;
@@ -10,11 +22,13 @@
     padding: 1rem;
     background-color: white;
     width: 10rem;
+    animation: revealMenu 1.3s ease;
 
     .entry{
       font-size: 1.4rem;
       margin: 0.5rem 0;
       cursor: pointer;
+      white-space: nowrap;
     }
   }
 
@@ -23,7 +37,7 @@
 
 $menu-icon-width: 5.5rem;
 $menu-icon-height: $menu-icon-width * 0.75;
-$menu-icon-color: #363636;
+$menu-icon-color: #00d9c3;
 $menu-icon-color--active: #D00251;
 
 .menu-icon {
