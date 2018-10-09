@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { TodoModel } from 'app/models';
+import * as React from 'react';
 import './footer.scss';
 
 export namespace Footer {

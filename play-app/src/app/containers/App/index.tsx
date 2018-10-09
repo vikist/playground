@@ -12,7 +12,7 @@ import { Introduction } from 'app/components/Introduction';
 import { Lazy } from 'app/components/LazyList/Lazy';
 import LazyLoad from 'react-lazyload';
 
-const FILTER_VALUES = (Object.keys(TodoModel.Filter) as (keyof typeof TodoModel.Filter)[]).map(
+const FILTER_VALUES = (Object.keys(TodoModel.Filter) as Array<keyof typeof TodoModel.Filter>).map(
   (key) => TodoModel.Filter[key]
 );
 
@@ -35,7 +35,7 @@ export namespace App {
   })
 )
 export class App extends React.Component<App.Props> {
-  static defaultProps: Partial<App.Props> = {
+  public static defaultProps: Partial<App.Props> = {
     filter: TodoModel.Filter.SHOW_ALL
   };
 
@@ -46,24 +46,24 @@ export class App extends React.Component<App.Props> {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave(text: string) {
+  public handleSave(text: string) {
     if (text.length) {
       this.props.actions.addTodo({ text });
     }
   }
 
-  handleClearCompleted(): void {
+  public handleClearCompleted(): void {
     const hasCompletedTodo = this.props.todos.some((todo) => todo.completed || false);
     if (hasCompletedTodo) {
       this.props.actions.clearCompleted();
     }
   }
 
-  handleFilterChange(filter: TodoModel.Filter): void {
+  public handleFilterChange(filter: TodoModel.Filter): void {
     this.props.history.push(`#${filter}`);
   }
 
-  render() {
+  public render() {
     const { todos, filter } = this.props;
     const activeCount = todos.length - todos.filter((todo) => todo.completed).length;
     const completedCount = todos.reduce((count, todo) => (todo.completed ? count + 1 : count), 0);

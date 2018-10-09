@@ -1,15 +1,38 @@
 {
-  // "extends": ["tslint:recommended"],
-  "extends": [],
   "defaultSeverity": "warning",
-  "rules":{
-    "interface-name":false
-  },
-  "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "rules": {
+    "object-literal-shorthand": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "no-empty-interface": false, // maybe remove this again because it seems fairly unneccessary
+    "no-var-requires": false,
+    "no-console": false,
+    "no-namespace": false,
+    "jsx-no-bind": false, // maybe remove because of rendering performace 
+    "jsx-no-lambda": false, // maybe remove because of rendering performace
+    "interface-name": false,
+    "jsx-no-multiline-js": false,
+    "space-before-function-paren": false,
+    "trailing-comma": [
+      true,
+      {
+        "singleline": "never",
+        "multiline": "never"
+      }
+    ],
+    "max-line-length": [
+      true,
+      140
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double",
+      "avoid-escape"
     ]
   }
 }
