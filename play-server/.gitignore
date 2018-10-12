@@ -10,6 +10,10 @@
 .springBeans
 .sts4-cache
 
+### Vagrant ###
+/vagrant
+.vagrant
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
