@@ -2,18 +2,14 @@ import * as React from 'react';
 import './introduction.scss';
 import Spinner from '../Spinner';
 
-export namespace Introduction {
-  export interface Props {
-  }
-
-  export interface State {
-    loading: boolean;
-    run: boolean;
-  }
+export interface Props { }
+export interface State {
+  loading: boolean;
+  run: boolean;
 }
 
-export class Introduction extends React.Component<Introduction.Props, Introduction.State> {
-  constructor(props: Introduction.Props, context?: any) {
+export class Introduction extends React.Component<Props, State> {
+  constructor(props: Props, context?: any) {
     super(props, context);
     this.state = {
       loading: false,

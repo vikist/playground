@@ -4,12 +4,10 @@ import logo from 'assets/play-logo.svg';
 import './header.scss';
 import { Hamburger } from '../Hamburger/Hamburger';
 
-export namespace Header {
-  export interface Props { }
-}
+export interface Props { }
 
-export class Header extends React.Component<Header.Props> {
-  constructor(props: Header.Props, context?: any) {
+export class Header extends React.Component<Props> {
+  constructor(props: Props, context?: any) {
     super(props, context);
   }
 

@@ -1,19 +1,11 @@
-import { TodoModel } from 'app/models';
 import * as React from 'react';
 import './footer.scss';
 
-export namespace Footer {
-  export interface Props {
-    filter: TodoModel.Filter;
-    activeCount?: number;
-    completedCount?: number;
-    onClickFilter: (filter: TodoModel.Filter) => any;
-    onClickClearCompleted: () => any;
-  }
+export interface Props {
 }
 
-export class Footer extends React.Component<Footer.Props> {
-  public static defaultProps: Partial<Footer.Props> = {
+export class Footer extends React.Component<Props> {
+  public static defaultProps: Partial<Props> = {
     activeCount: 0,
     completedCount: 0
   };

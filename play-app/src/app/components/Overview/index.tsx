@@ -1,14 +1,12 @@
 import * as React from 'react';
 
-export namespace Overview {
-  export interface Props {
-    users?: string[];
-    getUsers?(): Promise<string[]>;
-  }
+export interface Props {
+  users?: string[];
+  getUsers?(): Promise<string[]>;
 }
 
-export class Overview extends React.Component<Overview.Props> {
-  public static defaultProps: Partial<Overview.Props> = {
+export class Overview extends React.Component<Props> {
+  public static defaultProps: Partial<Props> = {
     users: []
   };
 
