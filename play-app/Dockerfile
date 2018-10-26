@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json /app/
 RUN yarn
 COPY ./ /app/
-RUN yarn run build
+RUN yarn run dist
 RUN ls -l
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
