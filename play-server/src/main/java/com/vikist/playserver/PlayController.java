@@ -2,6 +2,7 @@ package com.vikist.playserver;
 
 import com.vikist.playserver.model.Greeting;
 import com.vikist.playserver.repository.GreetingRepository;
+import com.vikist.playserver.service.ComputeService;
 import com.vikist.playserver.service.FileService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class PlayController {
   @Autowired
   private FileService fileService;
 
+  @Autowired
+  private ComputeService computeService;
+
   @GetMapping("/greet")
   @ResponseBody
   public Greeting sayHello(@RequestParam(name = "name", required = false , defaultValue = "Stranger") String name) {
@@ -30,7 +34,7 @@ public class PlayController {
 
   @GetMapping("/list")
   @ResponseBody
-  public List<Greeting> getGreetings(@RequestParam(name = "name", required = false , defaultValue = "Stranger") String name) {
+  public List<Greeting> getGreetings() {
     return greetingRepository.findAll();
   }
 
@@ -38,5 +42,11 @@ public class PlayController {
   @ResponseBody
   public void upload(@RequestParam(name = "path", required = true) String path) {
     fileService.upload(path);
+  }
+
+  @GetMapping("work")
+  @ResponseBody
+  public long work(@RequestParam(name="threads", required = true)int threads, @RequestParam(name="workload", required = true)long workload){
+    return computeService.startWorking(threads, workload);
   }
 }
