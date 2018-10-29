@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 var path = require('path');
 
 // variables
@@ -86,7 +87,7 @@ module.exports = {
           "style-loader", // creates style nodes from JS strings
           "css-loader", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
-      ]
+        ]
       },
       // static assets
       { test: /\.html$/, use: 'html-loader' },
@@ -123,7 +124,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'assets/index.html'
-    })
+    }),
+    
+    new Dotenv()
   ],
   devServer: {
     contentBase: sourcePath,

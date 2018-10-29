@@ -16,6 +16,8 @@
     display: inline;
     padding: 0 1rem;
     margin: auto 0;
+    cursor: pointer;
+    text-decoration: underline;
     
     &:visited {
       color: #00d9c3;

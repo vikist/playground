@@ -6,6 +6,11 @@ import { Hamburger } from '../Hamburger/Hamburger';
 
 export interface Props { }
 
+interface Greeting {
+  name: string;
+  id: number;
+}
+
 export class Header extends React.Component<Props> {
   constructor(props: Props, context?: any) {
     super(props, context);
@@ -25,9 +30,19 @@ export class Header extends React.Component<Props> {
           <Link className="navigation-entry" to="/login">
             <div>Login</div>
           </Link>
+          <div onClick={this.registerOnServer} className="navigation-entry">Subscribe</div>
           <Hamburger />
         </div>
       </header>
     );
+  }
+
+  private registerOnServer(): void {
+    const path = `${process.env.API_URL}/register`;
+    const eventSource = new EventSource(path);
+    eventSource.addEventListener('message', (event: any) => {
+      const user: Greeting = JSON.parse(event.data);
+      alert('user greeted: ' + user.name);
+    });
   }
 }

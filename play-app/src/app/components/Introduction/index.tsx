@@ -41,7 +41,7 @@ export class Introduction extends React.Component<Props, State> {
 
   public startComputation() {
     this.setState({ loading: true, run: true });
-    const path = `${process.env.REACT_APP_API_URL}/work?threads=${this.state.threads}&workload=${this.state.workload}`;
+    const path = `${process.env.API_URL}/work?threads=${this.state.threads}&workload=${this.state.workload}`;
     fetch(path)
       .then((response) => {
         return response.json();
@@ -100,7 +100,7 @@ export class Introduction extends React.Component<Props, State> {
   }
 
   private fetchUsers(): Promise<void> {
-    const path = `${process.env.REACT_APP_API_URL}/list`;
+    const path = `${process.env.API_URL}/list`;
     return fetch(path)
       .then((response) => {
         return response.json();
