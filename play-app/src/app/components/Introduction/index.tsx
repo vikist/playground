@@ -41,11 +41,12 @@ export class Introduction extends React.Component<Props, State> {
 
   public startComputation() {
     this.setState({ loading: true, run: true });
-    fetch(`http://localhost:8080/work?threads=${this.state.threads}&workload=${this.state.workload}`)
+    const path = `${process.env.REACT_APP_API_URL}/work?threads=${this.state.threads}&workload=${this.state.workload}`;
+    fetch(path)
       .then((response) => {
         return response.json();
       }).then((result) => {
-        this.setState({loading: false, computationResult: result });
+        this.setState({ loading: false, computationResult: result });
       });
 
     // this.setState({ loading: false, users: undefined });
@@ -99,7 +100,8 @@ export class Introduction extends React.Component<Props, State> {
   }
 
   private fetchUsers(): Promise<void> {
-    return fetch('http://localhost:8080/list')
+    const path = `${process.env.REACT_APP_API_URL}/list`;
+    return fetch(path)
       .then((response) => {
         return response.json();
       }).then((result) => {
