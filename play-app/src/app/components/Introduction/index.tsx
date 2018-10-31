@@ -39,19 +39,6 @@ export class Introduction extends React.Component<Props, State> {
     };
   }
 
-  public startComputation() {
-    this.setState({ loading: true, run: true });
-    const path = `${process.env.API_URL}/work?threads=${this.state.threads}&workload=${this.state.workload}`;
-    fetch(path)
-      .then((response) => {
-        return response.json();
-      }).then((result) => {
-        this.setState({ loading: false, computationResult: result });
-      });
-
-    // this.setState({ loading: false, users: undefined });
-  }
-
   public render() {
     const element = (
       <div>
@@ -62,29 +49,43 @@ export class Introduction extends React.Component<Props, State> {
           <input value={this.state.threads} onChange={(event) => this.setState({ threads: event.target.value })} placeholder="threads" />
         </div>
         <div>{this.state.computationResult}</div>
-        <button
-          disabled={(this.state.loading || this.state.workload.length === 0 || this.state.threads.length === 0) ? true : false}
-          className={'btn' + (this.state.loading || this.state.workload.length === 0 || this.state.threads.length === 0 ? ' inactive' : '')}
-          onClick={() => {
-            this.startComputation();
-          }}
-        >
-          Start work
-        </button>
-        <button
-          className={'btn' + (this.state.loading ? ' inactive' : '')}
-          style={{ float: 'right' }}
-          onClick={() => {
-            this.setState({ loading: true, run: true });
-            this.fetchUsers().then(() => {
-              this.setState({ loading: false, run: false });
-            }).catch((err) => {
-              this.setState({ loading: false, run: false });
-            });
-          }}
-        >
-          Show users
-        </button>
+        <div>
+          <button
+            disabled={(this.state.loading || this.state.workload.length === 0 || this.state.threads.length === 0) ? true : false}
+            // tslint:disable-next-line:max-line-length
+            className={'btn' + (this.state.loading || this.state.workload.length === 0 || this.state.threads.length === 0 ? ' inactive' : '')}
+            onClick={() => {
+              this.startSyncComputation();
+            }}
+          >
+            Work Sync
+          </button>
+          <button
+            disabled={(this.state.loading || this.state.workload.length === 0) ? true : false}
+            // tslint:disable-next-line:max-line-length
+            className={'btn' + (this.state.loading || this.state.workload.length === 0 ? ' inactive' : '')}
+            onClick={() => {
+              this.startAsyncJob();
+            }}
+          >
+            Work Async
+          </button>
+        </div>
+        <div>
+          <button
+            className={'btn' + (this.state.loading ? ' inactive' : '')}
+            onClick={() => {
+              this.setState({ loading: true, run: true });
+              this.fetchUsers().then(() => {
+                this.setState({ loading: false, run: false });
+              }).catch((err) => {
+                this.setState({ loading: false, run: false });
+              });
+            }}
+          >
+            Show users
+          </button>
+        </div>
         {this.state.loading ? <Spinner /> : null}
       </div>
     );
@@ -97,6 +98,27 @@ export class Introduction extends React.Component<Props, State> {
         </div>
       </div>
     );
+  }
+
+  private startSyncComputation() {
+    this.setState({ loading: true, run: true });
+    const path = `${process.env.API_URL}/work?threads=${this.state.threads}&workload=${this.state.workload}`;
+    fetch(path)
+      .then((response) => {
+        return response.json();
+      }).then((result) => {
+        this.setState({ loading: false, computationResult: result });
+      });
+  }
+
+  private startAsyncJob() {
+    const path = `${process.env.API_URL}/workAsync?workload=${this.state.workload}`;
+    fetch(path)
+      .then((response) => {
+        return response.json();
+      }).then((result) => {
+        this.setState({ loading: false, computationResult: 'Scheduled job: ' + result.jobId });
+      });
   }
 
   private fetchUsers(): Promise<void> {

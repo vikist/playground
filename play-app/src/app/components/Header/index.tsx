@@ -6,11 +6,6 @@ import { Hamburger } from '../Hamburger/Hamburger';
 
 export interface Props { }
 
-interface Greeting {
-  name: string;
-  id: number;
-}
-
 export class Header extends React.Component<Props> {
   constructor(props: Props, context?: any) {
     super(props, context);
@@ -41,8 +36,15 @@ export class Header extends React.Component<Props> {
     const path = `${process.env.API_URL}/register`;
     const eventSource = new EventSource(path);
     eventSource.addEventListener('message', (event: any) => {
-      const user: Greeting = JSON.parse(event.data);
-      alert('user greeted: ' + user.name);
+      const object: any = JSON.parse(event.data);
+      if (object.name !== undefined) {
+        alert('user greeted: ' + object.name);
+      } else if (object.jobId !== undefined) {
+        alert('job finished: ' + object.jobId);
+      } else {
+        alert('undefined event');
+      }
     });
+    alert('You subscribed successfully to the notification service');
   }
 }

@@ -1,5 +1,6 @@
 package com.vikist.playserver.service;
 
+import com.vikist.playserver.model.AsyncJob;
 import com.vikist.playserver.model.Greeting;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -20,5 +21,12 @@ public class DefaultPlayService implements PlayService {
   public void publishEvent(Greeting greeting) {
     this.eventPublisher
         .publishEvent(greeting);
+  }
+
+  @Override
+  public void publishJobFinishedEvent(AsyncJob job) {
+    System.out.println("Publish finished job");
+    this.eventPublisher
+        .publishEvent(job);
   }
 }
