@@ -18,6 +18,10 @@
   version "4.7.0"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/@types/history/-/history-4.7.0.tgz#2fac51050c68f7d6f96c5aafc631132522f4aa3f"
 
+"@types/js-cookie@^2.2.0":
+  version "2.2.0"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/@types/js-cookie/-/js-cookie-2.2.0.tgz#ae2eabaa4bc892ba553c664cca21e6ee5224e5b5"
+
 "@types/node@*":
   version "10.11.4"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/@types/node/-/node-10.11.4.tgz#e8bd933c3f78795d580ae41d86590bfc1f4f389d"
@@ -2826,6 +2830,10 @@ isstream@~0.1.2:
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.4.9"
   resolved "https://nexus.detss.corpintra.net/repository/npm-registry/js-base64/-/js-base64-2.4.9.tgz#748911fb04f48a60c4771b375cac45a80df11c03"
+
+js-cookie@^2.2.0:
+  version "2.2.0"
+  resolved "https://nexus.detss.corpintra.net/repository/npm-registry/js-cookie/-/js-cookie-2.2.0.tgz#1b2c279a6eece380a12168b92485265b35b1effb"
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
